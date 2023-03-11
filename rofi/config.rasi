@@ -1,11 +1,88 @@
 configuration {
-
-	modi: "drun,calc:qalc,window,run";
+	modi: "drun,calc,window,run";
+	display-drun: "Applications";
+	display-window: "Windows";
+	display-run:"Run";
+	display-calc: "Calculator";
 	width: 25;
-	show-icons: true;
-	icon-theme: "papirus";
+	font: "JetBrainsMono Regular 14";
 	lines: 10;
-	fake-transparency: true;
 	sidebar-mode: true;
-	
+}
+
+@theme "/dev/null"
+
+* {
+	bg: #121212;
+    bg-selected: #BB86FC;
+
+	fg: #ffffff;
+	fg-selected: #222222;
+
+	color: @fg;
+	background-color: @bg;
+
+	border: 1px;
+	margin: 0;
+	spacing: 0;
+}
+
+window {
+	width: 45%;
+	height: 50%;
+	border-size: 10px;
+	border-color: @bg-selected;
+	padding: 2px;
+}
+
+element{
+	padding:6;
+	margin: 0;
+}
+
+listview {
+	margin: 0;
+}
+
+element selected,element-text selected {
+	text-color: @fg-selected;
+	background-color: @bg-selected;
+}
+
+inputbar {
+	padding: 12;
+}
+
+prompt {
+	text-color: #aaaaaa;
+	padding: 6;
+	width: 20%;
+	margin: 1px;
+}
+
+entry {
+	margin: 1px;
+	padding: 6;
+}
+
+case-indicator {
+	width: 10;
+	text-color: @fg-selected;
+}
+
+mode-switcher {
+	margin: 0;
+	padding: 10;
+}
+
+button selected {
+	background-color: @bg-selected;
+	text-color: @fg-selected;
+}
+
+button {
+	background-color: @bg;
+	text-color: @fg;
+	margin: 6;
+	padding: 6;
 }
