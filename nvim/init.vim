@@ -15,13 +15,13 @@ call plug#begin()
 
 Plug 'marko-cerovac/material.nvim'
 Plug 'neoclide/coc.nvim'
-
+Plug 'elkowar/yuck.vim'
 
 call plug#end()
 
 " Color Scheme
-let g:material_style = "darker"
-colorscheme material
+"let g:material_style = "darker"
+"colorscheme material
 
 " use <tab> to trigger completion and navigate to the next complete item
 function! CheckBackspace() abort
