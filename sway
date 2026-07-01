@@ -21,8 +21,29 @@ set $menu wmenu-run
 ### Gaps
 gaps inner 10
 
+# Rounded corners
+corner_radius 10
+
+# Blur
+blur enable
+blur_radius 5
+blur_passes 3
+blur_noise 0.02
+blur_brightness 1.0
+blur_contrast 1.0
+
+# Shadows
+shadows enable
+shadow_blur_radius 20
+shadow_color #00000066
+
+# Dim inactive windows
+default_dim_inactive 0.08
+
+font "JetBrainsMono Nerd Font 11"
+
 ### Polkit
-exec /usr/lib/polkit-kde-authentication-agent-1
+exec /usr/lib/polkit-kde-authentication-agent-1 &
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -225,21 +246,41 @@ bindsym $mod+r mode "resize"
     # Special key to take a screenshot with grim
     bindsym Print exec grim
 
+# Catppuccin Mocha window colors
+# border     background(titlebar) text      indicator 
+client.focused          #89b4faE6 #1e1e2eE6 #cdd6f4 #89b4faE6 #89b4faE6
+client.focused_inactive #45475aE6 #1e1e2eE6 #cdd6f4 #45475aE6 #45475aE6
+client.unfocused        #313244E6 #1e1e2eE6 #6c7086 #313244E6 #313244E6
+client.urgent           #f38ba8E6 #f38ba8E6 #1e1e2e #f38ba8E6 #f38ba8E6
+# default_border pixel 2
+# default_floating_border pixel 2
+
 #
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    position top
-
+    height 30
+    position bottom
+    mode dock
+    tray_output none
+    hidden_state hide
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %X'; do sleep 1; done
+    # status_command while date +'%Y-%m-%d %X'; do sleep 1; done
+    status_command i3status -c $HOME/Documents/dotfiles/i3status.conf
+
 
     colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #323232 #323232 #5c5c5c
+        background #1e1e2e
+        statusline #cdd6f4
+        separator  #6c7086
+
+        focused_workspace  #89b4fa #89b4fa #1e1e2e
+        active_workspace   #45475a #45475a #cdd6f4
+        inactive_workspace #313244 #313244 #6c7086
+        urgent_workspace   #f38ba8 #f38ba8 #1e1e2e
+        binding_mode       #fab387 #fab387 #1e1e2e
     }
 }
 
