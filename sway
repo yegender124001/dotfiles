@@ -42,6 +42,8 @@ default_dim_inactive 0.08
 
 font "JetBrainsMono Nerd Font 11"
 
+exec mako 
+
 ### Polkit
 exec /usr/lib/polkit-kde-authentication-agent-1 &
 ### Output configuration
